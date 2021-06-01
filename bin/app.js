@@ -18,10 +18,9 @@ let options = {
 }
 
 const { version } = require('./../package.json');
-console.log(boxen('ProtonVPN OVPN Creds Generator', { padding: 1, margin: 1, borderStyle: 'double' }));
-console.log(chalk.bold('Coded by ' + chalk.magenta('leandev')));
+console.log(boxen('blockiller (ProtonVPN) Creds Generator', { padding: 1, margin: 1, borderStyle: 'double' }));
+console.log(chalk.bold('Originally coded by ' + chalk.magenta('leandev')));
 console.log(chalk.bold('Edits by ' + chalk.magenta('frostech')));
-console.log(chalk.bold('More info: ' + chalk.cyan('http://l34nd3v.com')));
 console.log(chalk.bold(chalk.red('This is an unofficial tool and is not affiliated with Proton Technologies AG\n')));
 
 const getAuthCode = () => {
