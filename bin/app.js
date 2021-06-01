@@ -18,7 +18,7 @@ let options = {
   }
 }
 
-const { version } = require('./package.json');
+const { version } = require('./../package.json');
 console.log(boxen('ProtonVPN OVPN Creds Generator', { padding: 1, margin: 1, borderStyle: 'double' }));
 console.log(chalk.bold('Coded by ' + chalk.magenta('leandev')));
 console.log(chalk.bold('Edits by ' + chalk.magenta('frostech')));
