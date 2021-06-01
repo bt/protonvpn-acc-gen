@@ -78,7 +78,7 @@ async function createAccount() {
   await page_proton.click('body > div.app-root > main > main > div > div:nth-child(5) > div:nth-child(1) > div.flex-item-fluid-auto.pt1.pb1.flex-no-min-children.flex-column > button');
 
   const all_iframe_elements = await page_proton.$$('iframe');
-  await console.log(chalk.bold(chalk.cyan('i ') + 'Supplying credentials... (if this throws an error, factory reset runtime and try again)'));
+  await console.log(chalk.bold(chalk.cyan('i ') + 'Supplying credentials... (if this throws an error, terminate runtime and try again)'));
   const username_iframe_element = all_iframe_elements[0];
   const username_iframe = await username_iframe_element.contentFrame();
   await username_iframe.waitForSelector('#username');
