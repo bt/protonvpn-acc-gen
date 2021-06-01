@@ -9,7 +9,6 @@ const guerrillamail_url = 'https://www.guerrillamail.com/en';
 const proton_url = 'https://account.protonvpn.com/signup';
 
 
-
 let options = {
   confirmation: {
     type: "confirm",
@@ -56,6 +55,7 @@ async function createAccount() {
 
   const browser = await puppeteer.launch({
     args: ['--disable-web-security', '--disable-features=IsolateOrigins,site-per-process', '--disable-dev-shm-usage', '--no-sandbox', '--disable-setuid-sandbox'],
+    executablePath: '/usr/bin/chromium-browser',
     //headless: false,
   });
 
