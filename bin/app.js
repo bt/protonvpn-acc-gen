@@ -138,11 +138,15 @@ async function createAccount() {
   await page_proton.goto("https://account.protonvpn.com/account");
   await page_proton.waitForSelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(4) > div.settings-layout-right.flex.flex-align-items-center > div.flex.flex-item-noshrink.on-mobile-mt0-5 > button:nth-child(2)');
   await page_proton.click('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(4) > div.settings-layout-right.flex.flex-align-items-center > div.flex.flex-item-noshrink.on-mobile-mt0-5 > button:nth-child(2)');
-  const ovpnusr = await page_proton.evaluate(() => document.querySelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(3) > div.settings-layout-right.flex.flex-align-items-center > div.text-ellipsis.max-w100.mr1.on-mobile-mr0 > code').innerText);
-  const ovpnpsw = await page_proton.evaluate(() => document.querySelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(4) > div.settings-layout-right.flex.flex-align-items-center > div.text-ellipsis.max-w100.mr1.on-mobile-mr0 > code').innerText);
+  setTimeout(async () => {
+    const ovpnusr = await page_proton.evaluate(() => document.querySelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(3) > div.settings-layout-right.flex.flex-align-items-center > div.text-ellipsis.max-w100.mr1.on-mobile-mr0 > code').innerText);
+    const ovpnpsw = await page_proton.evaluate(() => document.querySelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(4) > div.settings-layout-right.flex.flex-align-items-center > div.text-ellipsis.max-w100.mr1.on-mobile-mr0 > code').innerText);
+    
+    console.log(chalk.bold(chalk.red('! ') + 'blockiller Username: ' + ovpnusr));
+    console.log(chalk.bold(chalk.red('! ') + 'blockiller Password: ' + ovpnpsw));
+  }, 5000);
   
-  console.log(chalk.bold(chalk.red('! ') + 'blockiller Username: ' + ovpnusr));
-  console.log(chalk.bold(chalk.red('! ') + 'blockiller Password: ' + ovpnpsw));
+
   
   console.log(chalk.bold(chalk.green('? ') + 'LETS FREAKING GOOOO, done'));
   setTimeout(async () => {
