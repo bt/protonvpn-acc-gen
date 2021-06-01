@@ -142,17 +142,9 @@ async function createAccount() {
   const ovpnusr = await page_proton.evaluate(() => document.querySelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(3) > div.settings-layout-right.flex.flex-align-items-center > div.text-ellipsis.max-w100.mr1.on-mobile-mr0 > code').innerText);
   const ovpnpsw = await page_proton.evaluate(() => document.querySelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(4) > div.settings-layout-right.flex.flex-align-items-center > div.text-ellipsis.max-w100.mr1.on-mobile-mr0 > code').innerText);
   
-  let table2 = await new Table({
-    head: [chalk.green('blockiller Username'), chalk.green('blockiller Password')],
-    chars: {
-      'top': '-', 'top-mid': '-', 'top-left': '+', 'top-right': '+'
-      , 'bottom': '-', 'bottom-mid': '-', 'bottom-left': '+', 'bottom-right': '+'
-      , 'left': 'ý', 'left-mid': 'ý', 'mid': '-', 'mid-mid': '+'
-      , 'right': 'ý', 'right-mid': 'ý', 'middle': 'ý'
-    }
-  });
-
-  await table2.push([ovpnusr, ovpnpsw]);
+  console.log(chalk.bold(chalk.red('! ') + 'blockiller Username: ' + ovpnusr));
+  console.log(chalk.bold(chalk.red('! ') + 'blockiller Password: ' + ovpnpsw));
+  
   console.log(chalk.bold(chalk.green('? ') + 'LETS FREAKING GOOOO, done'));
   setTimeout(async () => {
    await browser.close()
