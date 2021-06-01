@@ -79,7 +79,7 @@ async function createAccount() {
   await page_proton.click('body > div.app-root > main > main > div > div:nth-child(5) > div:nth-child(1) > div.flex-item-fluid-auto.pt1.pb1.flex-no-min-children.flex-column > button');
 
   const all_iframe_elements = await page_proton.$$('iframe');
-  await console.log(chalk.bold(chalk.cyan('i ') + 'Supplying credentials... (if this takes longer than 60 seconds, restart repl)'));
+  await console.log(chalk.bold(chalk.cyan('i ') + 'Supplying credentials... (if this throws an error, factory reset runtime and try again)'));
   const username_iframe_element = all_iframe_elements[0];
   const username_iframe = await username_iframe_element.contentFrame();
   await username_iframe.waitForSelector('#username');
@@ -106,7 +106,7 @@ async function createAccount() {
 
   await page_proton.click('body > div.app-root > main > main > div > div.pt2.mb2 > div > div.w100 > div:nth-child(2) > div > div > div:nth-child(2) > form > div:nth-child(2) > button');
   await console.log(chalk.bold(chalk.green('? ') + 'Credentials supplied.'));
-  await console.log(chalk.bold(chalk.cyan('i ') + 'Waiting for verification email... (this will take some time)'));
+  await console.log(chalk.bold(chalk.cyan('i ') + 'Waiting for verification email... (this will take some time, please be patient!)'));
   await page_guerrillamail.bringToFront();
 
   await page_guerrillamail.setDefaultTimeout(1000000);
@@ -132,9 +132,9 @@ async function createAccount() {
 
   await table.push([user, pasw, mail]);
 
-  console.log(chalk.bold(chalk.green('? ') + 'Account generated (note the above are for protonvpn, not for blockiller.)'));
+  console.log(chalk.bold(chalk.green('? ') + 'Account generated (note the below are for protonvpn, not for blockiller.)'));
   console.log(table.toString());
-  console.log(chalk.bold(chalk.cyan('i ') + 'Grabbing OVPN details...'));
+  console.log(chalk.bold(chalk.cyan('i ') + 'Grabbing blockiller (OVPN) details...'));
   await page_proton.waitForSelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > h1');
   await page_proton.goto("https://account.protonvpn.com/account");
   await page_proton.waitForSelector('body > div.app-root > div.content-container.flex.flex-column.flex-nowrap.no-scroll > div > div > div.main.ui-standard.flex.flex-column.flex-nowrap.flex-item-fluid > main > div > section:nth-child(9) > div > div:nth-child(4) > div.settings-layout-right.flex.flex-align-items-center > div.flex.flex-item-noshrink.on-mobile-mt0-5 > button:nth-child(2)');
@@ -150,7 +150,7 @@ async function createAccount() {
    await browser.close()
    await console.log(chalk.bold(chalk.cyan('i ') + 'Exiting...'));
    await process.exit();
-  }, 20000);
+  }, 2000);
 }
 
 createAccount();
